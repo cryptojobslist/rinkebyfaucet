@@ -1,0 +1,43 @@
+@tailwind base;
+@tailwind components;
+
+.btn {
+  @apply px-4 py-2 font-bold text-white no-underline bg-gray-500 rounded;
+}
+
+nav a {
+  @apply text-gray-700 no-underline;
+  font-family: 'Poppins', sans-serif;
+}
+
+.hero {
+  padding-top: 5vh;
+  border-bottom: 5vh;
+}
+
+.title {
+  @apply text-5xl text-center;
+  font-family: 'Poppins', sans-serif;
+  color: #333;
+  line-height: 1.15;
+}
+
+textarea:focus,
+input:focus,
+button:focus,
+button:active {
+  outline: none;
+}
+
+.spinner.center {
+  left: 50%;
+}
+
+.btn-green {
+  @apply px-5 py-1 text-lg text-white bg-green-500;
+}
+.btn-green:hover {
+  @apply bg-green-600;
+}
+
+@tailwind utilities;
