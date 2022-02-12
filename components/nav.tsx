@@ -11,6 +11,11 @@ export default function Nav() {
             Github
           </a>
         </li>
+        <li>
+          <a href={`https://rinkeby.etherscan.io/address/${process.env.NEXT_PUBLIC_ADDRESS}`} target='_blank'>
+            Donate Rinkeby ETH
+          </a>
+        </li>
       </ul>
       <ul className='flex items-center justify-between space-x-8'>
         <li></li>

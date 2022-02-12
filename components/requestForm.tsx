@@ -31,17 +31,15 @@ export default function RequestForm() {
   }
 
   return (
-    <form className='space-x-2' onSubmit={handleSubmit(onSubmit)}>
+    <form className='space-y-3 md:space-x-2' onSubmit={handleSubmit(onSubmit)}>
       <input
         {...register('address', {
           required: true,
-          validate: address => {
-            return /0x[a-fA-F0-9]{40}/g.test(address)
-          },
+          validate: address => /0x[a-fA-F0-9]{40}/g.test(address),
         })}
         type='text'
         placeholder='0x123…'
-        className={cn('p-2 mt-4 border border-blue-300 border-solid rounded w-72', {
+        className={cn('p-2 mt-4 border border-blue-300 border-solid rounded w-96', {
           'border-red-400': formState.errors.address,
         })}
       />
@@ -50,8 +48,8 @@ export default function RequestForm() {
         type='submit'>
         {loading ? `Requesting…` : `Request`}
       </button>
-      {error && <div className='m-1 text-red-500'>{error.message}</div>}
-      {/* <HCaptcha size='invisible' ref={captchaRef} sitekey={process.env.NODE_PUBLIC_HCAPTCHA} /> */}
+      {error && <div className='text-red-500'>{error.message}</div>}
+      {/* <HCaptcha size='invisible' ref={captchaRef} sitekey={process.env.NEXT_PUBLIC_HCAPTCHA} /> */}
     </form>
   )
 }
