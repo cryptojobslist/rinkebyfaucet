@@ -14,7 +14,7 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
       return res.status(200).json({ message: `Eth requested` })
     }
   } catch (err) {
-    return res.status(500).json({ error: err.message })
+    return res.status(500).json({ message: err.message })
   }
 
   return res.status(200).json({ message: `requested` })

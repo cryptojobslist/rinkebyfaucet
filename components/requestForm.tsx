@@ -21,6 +21,7 @@ export default function RequestForm() {
         body: JSON.stringify({ address }),
       })
       const result = await res.json()
+      if (res.status >= 300) setError(result)
       setSuccess(result)
     } catch (err) {
       setError(err)
@@ -49,6 +50,7 @@ export default function RequestForm() {
         type='submit'>
         {loading ? `Requesting…` : `Request`}
       </button>
+      {error && <div className='m-1 text-red-500'>{error.message}</div>}
       {/* <HCaptcha size='invisible' ref={captchaRef} sitekey={process.env.NODE_PUBLIC_HCAPTCHA} /> */}
     </form>
   )
