@@ -7,7 +7,7 @@ function MyApp({ Component, pageProps }) {
     <>
       <NextSeo
         title={process.env.appName}
-        description='Rinkeby Faucet - Get your Rinkeby Eth for development and testing here.'
+        description='Rinkeby Faucet - Get your Rinkeby ETH for development and testing here.'
       />
       <Head>
         <link

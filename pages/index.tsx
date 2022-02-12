@@ -1,7 +1,8 @@
 import { useEffect } from 'react'
 import { fetch } from 'lib/fetch'
 import Link from 'next/link'
-import Router from 'next/router'
+import RequestForm from 'components/requestForm'
+import { FaGithub } from 'react-icons/fa'
 
 export default function IndexPage({ error, ...props }) {
   return (
@@ -9,6 +10,7 @@ export default function IndexPage({ error, ...props }) {
       <nav className='flex items-center justify-between p-8'>
         <ul className='flex items-center justify-between space-x-4'>
           <li>
+            {process.env.appName}
             {/* <img
               src='./logo.svg'
               alt={process.env.appName + ' logo'}
@@ -16,11 +18,18 @@ export default function IndexPage({ error, ...props }) {
             /> */}
           </li>
         </ul>
+        <ul className='flex items-center justify-between space-x-4'>
+          <li>
+            <a href='https://github.com/cryptojobslist/rinkebyfaucet' target='_blank'>
+              <FaGithub className='inline' /> GitHub
+            </a>
+          </li>
+        </ul>
       </nav>
       <div className='m-8'>
-        <h1 className='text-left title'>Welcome to {process.env.appName}</h1>
-        <p>Get your Rinkeby Eth for development and testing here.</p>
-        <input type='text' placeholder='0x123…' className='p-2 mt-4 border border-blue-300 border-solid rounded' />
+        <h1 className='text-left title'>{process.env.appName}</h1>
+        <p>Get your Rinkeby ETH for development and testing here.</p>
+        <RequestForm />
       </div>
     </div>
   )

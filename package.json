@@ -15,6 +15,7 @@
     "supabase:stop": "supabase stop"
   },
   "dependencies": {
+    "@hcaptcha/react-hcaptcha": "^1.1.0",
     "@stripe/stripe-js": "^1.22.0",
     "@supabase/supabase-js": "^1.29.4",
     "@supabase/ui": "^0.36.3",
@@ -27,12 +28,14 @@
     "next": "12.0.3",
     "next-plugin-preact": "^3.0.6",
     "next-seo": "^5.1.0",
+    "next-themes": "^0.0.15",
     "preact": "^10.6.5",
     "preact-render-to-string": "^5.1.19",
     "react": "npm:@preact/compat",
     "react-cookies": "^0.1.1",
     "react-dom": "npm:@preact/compat",
-    "react-hook-form": "^7.25.3",
+    "react-hook-form": "^7.27.0",
+    "react-icons": "^4.3.1",
     "react-ssr-prepass": "npm:preact-ssr-prepass",
     "react-textarea-autosize": "^8.3.3",
     "sass": "^1.49.7"
@@ -48,14 +51,14 @@
     "chai": "^4.3.6",
     "db-migrate": "^0.11.13",
     "db-migrate-pg": "^1.2.2",
-    "jest": "^27.4.7",
+    "jest": "^27.5.1",
     "mocha": "^9.2.0",
     "next-compose-plugins": "^2.2.1",
     "postcss": "^8.4.6",
     "postcss-nested": "^5.0.6",
     "prettier": "^2.5.1",
     "sinon": "^13.0.1",
-    "tailwindcss": "^3.0.18",
+    "tailwindcss": "^3.0.22",
     "tailwindcss-spinner": "^1.2.0",
     "typescript": "^4.5.5"
   }
