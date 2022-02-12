@@ -1,10 +1,11 @@
 import 'styles/index.css'
 import Head from 'next/head'
 import { NextSeo } from 'next-seo'
+import { ThemeProvider } from 'next-themes'
 
 function MyApp({ Component, pageProps }) {
   return (
-    <>
+    <ThemeProvider>
       <NextSeo
         title={process.env.appName}
         description='Rinkeby Faucet - Get your Rinkeby ETH for development and testing here.'
@@ -16,7 +17,7 @@ function MyApp({ Component, pageProps }) {
         />
       </Head>
       <Component {...pageProps} />
-    </>
+    </ThemeProvider>
   )
 }
 

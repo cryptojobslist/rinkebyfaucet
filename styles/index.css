@@ -6,7 +6,7 @@
 }
 
 nav a {
-  @apply text-gray-700 no-underline;
+  @apply no-underline;
   font-family: 'Poppins', sans-serif;
 }
 
@@ -18,7 +18,6 @@ nav a {
 .title {
   @apply text-5xl text-center;
   font-family: 'Poppins', sans-serif;
-  color: #333;
   line-height: 1.15;
 }
 

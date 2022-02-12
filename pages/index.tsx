@@ -6,8 +6,9 @@ export default function IndexPage({ error, ...props }) {
     <div className='min-h-screen'>
       <Nav />
       <div className='m-4 md:m-8'>
-        <h1 className='text-left title'>{process.env.appName}</h1>
-        <p>Get your Rinkeby ETH for Ethereum development and testing.</p>
+        <div className='mb-10 opacity-50 '>🚧 &nbsp; Under construction</div>
+        <h1 className='text-left title dark:text-white'>{process.env.appName}</h1>
+        <p className='my-2'>Get your Rinkeby ETH for Ethereum development and testing.</p>
         <RequestForm />
       </div>
     </div>

@@ -15,11 +15,18 @@ module.exports = {
       //   speed: '500ms',
       // },
     }),
-    extend: {},
+    extend: {
+      colors: {
+        purple: '#453dff'
+      }
+    },
   },
   darkMode: 'class',
   variants: {
     spinner: ['responsive'],
+    extend: {
+      display: ['dark'],
+    },
   },
   plugins: [require('tailwindcss-spinner')(), require('@tailwindcss/typography')],
 }

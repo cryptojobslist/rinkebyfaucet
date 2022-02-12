@@ -39,12 +39,12 @@ export default function RequestForm() {
         })}
         type='text'
         placeholder='0x123…'
-        className={cn('p-2 mt-4 border border-blue-300 border-solid rounded w-96', {
+        className={cn('p-2 px-3 mt-4 border border-purple border-solid rounded md:w-96 w-full', {
           'border-red-400': formState.errors.address,
         })}
       />
       <button
-        className='p-2 px-4 text-white bg-blue-500 rounded opacity-90 hover:opacity-100 active:opacity-80'
+        className='p-2 px-4 text-white rounded bg-purple opacity-95 hover:opacity-100 active:opacity-90'
         type='submit'>
         {loading ? `Requesting…` : `Request`}
       </button>
