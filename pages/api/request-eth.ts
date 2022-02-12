@@ -7,11 +7,11 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
   const amount = params.amount
 
   console.log(params)
+  //  TODO validate captcha
 
-  // if (await RequestEth(address)) {
-  //   return res.status(200).json({ message: `Eth requested` })
-  // }
+  if (await RequestEth(address)) {
+    return res.status(200).json({ message: `Eth requested` })
+  }
 
   return res.status(200).json({ message: `requested` })
-  //  TODO validate captcha
 }

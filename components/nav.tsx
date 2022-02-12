@@ -1,21 +1,19 @@
 import Link from 'next/link'
+import { FaGithub } from 'react-icons/fa'
 
 export default function Nav() {
   return (
     <nav className='flex items-center justify-between p-8'>
       <ul className='flex items-center justify-between space-x-8'>
         <li>
-          {/* <img
-            src='./logo.svg'
-            alt={process.env.appName + ' logo'}
-            className='relative inline-block h-4 pt-1 mr-2 align-baseline'
-          /> */}
+          <a href='https://github.com/cryptojobslist/rinkebyfaucet' target='_blank'>
+            <FaGithub className='inline mb-1 mr-1' />
+            Github
+          </a>
         </li>
-        <li>
-          <Link href='https://github.com/cryptojobslist'>
-            <a>Github</a>
-          </Link>
-        </li>
+      </ul>
+      <ul className='flex items-center justify-between space-x-8'>
+        <li></li>
       </ul>
     </nav>
   )
