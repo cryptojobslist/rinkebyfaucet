@@ -23,6 +23,7 @@ export default async function requestEth(address: string, amount: number = 0.1):
   if (lastRequest.length > 0 && Date.now() / 1000 - lastRequest[0].timestamp < TWENTY_FOUR_HOURS) {
     throw new Error(`You have already requested Rinkeby ETH within the last 24 hours`)
   }
+  throw new Error(`Currently in dev. Come back later. Contribute to our Github repo`)
 
   // If all good, send ETH
   const wallet = new ethers.Wallet(process.env.FAUCET_SK)
