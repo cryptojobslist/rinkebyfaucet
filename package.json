@@ -23,6 +23,7 @@
     "clipboard-copy": "^4.0.1",
     "dayjs": "^1.10.7",
     "ethers": "^5.5.4",
+    "hcaptcha": "^0.1.1",
     "isomorphic-unfetch": "^3.1.0",
     "lodash": "^4.17.21",
     "next": "12.0.3",

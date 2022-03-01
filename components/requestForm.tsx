@@ -3,22 +3,36 @@ import { useState, useRef } from 'react'
 import { useForm } from 'react-hook-form'
 import HCaptcha from '@hcaptcha/react-hcaptcha'
 
+export interface PayloadProps {
+  hCaptchaToken: string
+  address: string
+  amount?: number
+}
+
 export default function RequestForm() {
   const { register, handleSubmit, formState } = useForm()
   const [loading, setLoading] = useState<boolean>(false)
   const [success, setSuccess] = useState<boolean>(false)
   const [error, setError] = useState<any | null>(null)
+  const [formData, setFormData] = useState<PayloadProps>(null)
   const captchaRef = useRef<any>(null)
 
-  const onSubmit = async data => {
+  const requestCaptcha = data => {
+    console.log(1, data)
     setLoading(true)
+    setFormData(data)
+    captchaRef.current.execute()
+  }
+
+  const onCaptchaResolved = async (data: any, hCaptchaToken: string) => {
     try {
-      // captchaRef.current.execute()
-      const address = data.address.trim()
+      console.log(2, data)
+      const address = data.address.trim() as string
+      const amount = parseInt(data.amount?.trim(), 10)
       const res = await fetch('/api/request-eth', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ address }),
+        body: JSON.stringify({ address, amount, hCaptchaToken } as PayloadProps),
       })
       const result = await res.json()
       if (res.status >= 300) setError(result)
@@ -31,7 +45,7 @@ export default function RequestForm() {
   }
 
   return (
-    <form className='space-y-3 md:space-x-2' onSubmit={handleSubmit(onSubmit)}>
+    <form className='space-y-3 md:space-x-2' onSubmit={handleSubmit(requestCaptcha)}>
       <input
         {...register('address', {
           required: true,
@@ -49,7 +63,16 @@ export default function RequestForm() {
         {loading ? `Requesting…` : `Request`}
       </button>
       {error && <div className='text-red-500'>{error.message}</div>}
-      {/* <HCaptcha size='invisible' ref={captchaRef} sitekey={process.env.NEXT_PUBLIC_HCAPTCHA} /> */}
+      {success && <div className='text-green-500'>Success! ETH is on the way.</div>}
+      {/* TODO offer to tweet */}
+      <HCaptcha
+        size='invisible'
+        ref={captchaRef}
+        sitekey={process.env.NEXT_PUBLIC_HCAPTCHA}
+        onVerify={hCaptchaToken => {
+          onCaptchaResolved(formData, hCaptchaToken)
+        }}
+      />
     </form>
   )
 }
