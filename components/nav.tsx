@@ -6,7 +6,7 @@ import { useTheme } from 'next-themes'
 export const ThemeSwitcher = () => {
   const { theme, setTheme } = useTheme()
   return (
-    <button onClick={() => setTheme(theme === 'light' ? 'dark' : 'light')}>
+    <button onClick={() => setTheme(theme === 'light' ? 'dark' : 'light')} title='Change Theme Color'>
       <FaRegMoon className='dark:hidden' />
       <CgSun className='hidden dark:show' />
     </button>
@@ -18,7 +18,7 @@ export default function Nav() {
     <nav className='flex items-center justify-between m-4 md:m-8'>
       <ul className='flex items-center justify-between space-x-8 dark:text-white'>
         <li>
-          <a href='https://github.com/cryptojobslist/rinkebyfaucet' target='_blank'>
+          <a href='https://github.com/cryptojobslist/rinkebyfaucet' target='_blank' rel='noreferrer noopener'>
             <FaGithub className='inline mb-1 mr-1' />
             Github
           </a>
