@@ -2,11 +2,12 @@ import Link from 'next/link'
 import { FaGithub, FaRegMoon } from 'react-icons/fa'
 import { CgSun } from 'react-icons/cg'
 import { useTheme } from 'next-themes'
+import { myProvider } from 'lib/contextApi'
 
 export const ThemeSwitcher = () => {
-  const { theme, setTheme } = useTheme()
+  const { changeTheme }: any = myProvider()
   return (
-    <button onClick={() => setTheme(theme === 'light' ? 'dark' : 'light')} title='Change Theme Color'>
+    <button onClick={changeTheme} title='Change Theme Color'>
       <FaRegMoon className='dark:hidden' />
       <CgSun className='hidden dark:show' />
     </button>

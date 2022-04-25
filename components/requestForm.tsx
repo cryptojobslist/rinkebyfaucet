@@ -54,7 +54,7 @@ export default function RequestForm() {
           })}
           type='text'
           placeholder='0x123…'
-          className={cn('border-null md:w-4/5', {
+          className={cn('border-null md:w-4/5 p-2 px-4 bg-transparent', {
             'border-red-400': formState.errors.address,
           })}
         />
